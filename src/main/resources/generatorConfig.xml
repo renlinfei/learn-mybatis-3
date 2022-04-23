@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--导入配置 -->
+    <properties resource="my-db.properties" />
+
+    <!-- context 一般是一个数据源一个context -->
+    <context id="default" targetRuntime="MyBatis3" defaultModelType="flat">
+        <!-- 插件 -->
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin">
+            <property name="useEqualsHashCodeFromRoot" value="true" />
+        </plugin>
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin">
+            <property name="useToStringFromRoot" value="true" />
+        </plugin>
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+            <property name="addRemarkComments" value="true" />
+        </commentGenerator>
+
+        <!--jdbc的数据库连接 -->
+        <jdbcConnection
+                driverClass="${jdbc.driver}"
+                connectionURL="${jdbc.url}"
+                userId="${jdbc.username}"
+                password="${jdbc.password}">
+        </jdbcConnection>
+
+        <!-- 类型解析器 -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="true" />
+        </javaTypeResolver>
+
+        <!-- 实体类 -->
+        <javaModelGenerator
+                targetPackage="com.chrisren.learnmybatis3.mbg.entity"
+                targetProject="./src/main/java">
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- xml -->
+        <sqlMapGenerator
+                targetPackage="mapper.mbg"
+                targetProject="./src/main/resources">
+        </sqlMapGenerator>
+
+        <!-- Mapper接口 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.chrisren.learnmybatis3.mbg.mapper"
+                             targetProject="./src/main/java">
+        </javaClientGenerator>
+
+        <!-- 指定数据库表 -->
+        <table tableName="t_car_info"
+               enableSelectByExample="false"
+               enableDeleteByExample="false"
+               enableCountByExample="false"
+               enableUpdateByExample="false">
+            <domainObjectRenamingRule searchString="Demo" replaceString="" />
+        </table>
+    </context>
+
+    <context id="dynamicSql" targetRuntime="MyBatis3DynamicSql" defaultModelType="flat">
+        <!-- 插件 -->
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin">
+            <property name="useEqualsHashCodeFromRoot" value="true" />
+        </plugin>
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin">
+            <property name="useToStringFromRoot" value="true" />
+        </plugin>
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+            <property name="addRemarkComments" value="true" />
+        </commentGenerator>
+
+        <!--jdbc的数据库连接 -->
+        <jdbcConnection
+                driverClass="${jdbc.driver}"
+                connectionURL="${jdbc.url}"
+                userId="${jdbc.username}"
+                password="${jdbc.password}">
+        </jdbcConnection>
+
+        <!-- 类型解析器 -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="true" />
+        </javaTypeResolver>
+
+        <!-- 实体类 -->
+        <javaModelGenerator
+                targetPackage="com.chrisren.learnmybatis3.dynamicsql.entity"
+                targetProject="./src/main/java">
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- Mapper接口 -->
+        <javaClientGenerator
+                type="ANNOTATEDMAPPER"
+                targetPackage="com.chrisren.learnmybatis3.dynamicsql.mapper"
+                targetProject="./src/main/java">
+        </javaClientGenerator>
+
+        <!-- 指定数据库表 -->
+        <table tableName="t_car_info">
+            <domainObjectRenamingRule searchString="Demo" replaceString="" />
+        </table>
+    </context>
+</generatorConfiguration>

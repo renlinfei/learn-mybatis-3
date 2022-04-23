@@ -1,0 +1,30 @@
+package com.chrisren.learnmybatis3.mbg.mapper;
+
+import com.chrisren.learnmybatis3.mbg.entity.TCarInfo;
+import com.chrisren.learnmybatis3.mbg.entity.TCarInfoExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
+
+public interface TCarInfoMapper {
+    long countByExample(TCarInfoExample example);
+
+    int deleteByExample(TCarInfoExample example);
+
+    int deleteByPrimaryKey(Long id);
+
+    int insert(TCarInfo row);
+
+    int insertSelective(TCarInfo row);
+
+    List<TCarInfo> selectByExample(TCarInfoExample example);
+
+    TCarInfo selectByPrimaryKey(Long id);
+
+    int updateByExampleSelective(@Param("row") TCarInfo row, @Param("example") TCarInfoExample example);
+
+    int updateByExample(@Param("row") TCarInfo row, @Param("example") TCarInfoExample example);
+
+    int updateByPrimaryKeySelective(TCarInfo row);
+
+    int updateByPrimaryKey(TCarInfo row);
+}

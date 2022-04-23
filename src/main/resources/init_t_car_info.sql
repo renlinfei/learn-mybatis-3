@@ -1,0 +1,1 @@
+insert t_car_info(car_no, car_name, created_by, updated_by) values('BMW', '宝马', 'chris', 'chris');

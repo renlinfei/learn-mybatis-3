@@ -1,0 +1,16 @@
+package com.chrisren.learnmybatis3.mbg.mapper;
+
+import com.chrisren.learnmybatis3.mbg.entity.TCarInfo;
+import java.util.List;
+
+public interface TCarInfoMapper {
+    int deleteByPrimaryKey(Long id);
+
+    int insert(TCarInfo row);
+
+    TCarInfo selectByPrimaryKey(Long id);
+
+    List<TCarInfo> selectAll();
+
+    int updateByPrimaryKey(TCarInfo row);
+}
